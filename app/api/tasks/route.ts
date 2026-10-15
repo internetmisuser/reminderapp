@@ -5,11 +5,7 @@ import { authOptions } from '@/lib/auth';
 import { connectDB, isMongoConfigured } from '@/lib/mongodb';
 import { Task, ReminderFrequency } from '@/models/Task';
 import { shouldTriggerReminder } from '@/lib/reminder-engine';
-import {
-  memoryStore,
-  generateObjectIdHex,
-  seedDefaultTasksForUser,
-} from '@/lib/fallback-store';
+import { memoryStore, generateObjectIdHex, seedDefaultTasksForUser } from '@/lib/fallback-store';
 
 export async function GET(req: NextRequest) {
   const session = await getServerSession(authOptions);

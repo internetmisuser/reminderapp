@@ -2,11 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
 import { connectDB, isMongoConfigured } from '@/lib/mongodb';
 import { User } from '@/models/User';
-import {
-  memoryStore,
-  generateObjectIdHex,
-  seedDefaultTasksForUser,
-} from '@/lib/fallback-store';
+import { memoryStore, generateObjectIdHex, seedDefaultTasksForUser } from '@/lib/fallback-store';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
