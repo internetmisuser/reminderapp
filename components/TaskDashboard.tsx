@@ -1,20 +1,5 @@
-'use client';
+import AuthCard from './AuthCard';
 
-import React, { useState, useEffect, useCallback } from 'react';
-import { signOut, useSession } from 'next-auth/react';
-import {
-  Inbox,
-  Calendar,
-  CalendarDays,
-  Plus,
-  Check,
-  Repeat,
-  BellRing,
-  Trash2,
-  Menu,
-  X,
-  LogOut,
-  Clock,
-  Sparkles,
-} from 'lucide-react';
+export default function TaskDashboard() {
+  const { data: session, status } = useSession();
 
