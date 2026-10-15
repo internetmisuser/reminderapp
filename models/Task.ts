@@ -1,9 +1,5 @@
 import mongoose, { Schema, Document, Model } from 'mongoose';
 
-export type ReminderFrequency = 'NONE' | 'TWICE_DAILY' | 'THRICE_DAILY' | 'HOURLY';
-
-export type RecurrenceRule = 'NONE' | 'MONTHLY';
-
 export interface ITask extends Document {
   _id: mongoose.Types.ObjectId;
   userId: mongoose.Types.ObjectId;
@@ -12,8 +8,8 @@ export interface ITask extends Document {
   baseDueDate: Date;
   isCompleted: boolean;
   isRecurring: boolean;
-  recurrenceRule: RecurrenceRule;
-  reminderFrequency: ReminderFrequency;
+  recurrenceRule: 'NONE' | 'MONTHLY';
+  reminderFrequency: 'NONE' | 'TWICE_DAILY' | 'THRICE_DAILY' | 'HOURLY';
   lastNotifiedAt: Date | null;
   pendingBrowserAlert: boolean;
   createdAt: Date;

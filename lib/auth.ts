@@ -6,17 +6,9 @@ import GitHubProvider from 'next-auth/providers/github';
 import FacebookProvider from 'next-auth/providers/facebook';
 import AppleProvider from 'next-auth/providers/apple';
 import bcrypt from 'bcryptjs';
-import {
-  getMongoClientPromise,
-  connectDB,
-  isMongoConfigured,
-} from '@/lib/mongodb';
+import { getMongoClientPromise, connectDB, isMongoConfigured } from '@/lib/mongodb';
 import { User } from '@/models/User';
-import {
-  memoryStore,
-  generateObjectIdHex,
-  seedDefaultTasksForUser,
-} from '@/lib/fallback-store';
+import { memoryStore, generateObjectIdHex, seedDefaultTasksForUser } from '@/lib/fallback-store';
 import type { Adapter } from 'next-auth/adapters';
 
 export const authOptions: NextAuthOptions = {
@@ -85,8 +77,7 @@ export const authOptions: NextAuthOptions = {
     }),
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID ?? 'google-client-id-placeholder',
-      clientSecret:
-        process.env.GOOGLE_CLIENT_SECRET ?? 'google-client-secret-placeholder',
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? 'google-client-secret-placeholder',
       allowDangerousEmailAccountLinking: false,
     }),
     GitHubProvider({
@@ -94,10 +85,8 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.GITHUB_SECRET ?? 'github-secret-placeholder',
     }),
     FacebookProvider({
-      clientId:
-        process.env.FACEBOOK_CLIENT_ID ?? 'facebook-client-id-placeholder',
-      clientSecret:
-        process.env.FACEBOOK_CLIENT_SECRET ?? 'facebook-client-secret-placeholder',
+      clientId: process.env.FACEBOOK_CLIENT_ID ?? 'facebook-client-id-placeholder',
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET ?? 'facebook-client-secret-placeholder',
     }),
     AppleProvider({
       clientId: process.env.APPLE_ID ?? 'apple-id-placeholder',

@@ -3,12 +3,6 @@ import mongoose from 'mongoose';
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
-export const isMongoConfigured = Boolean(
-  MONGODB_URI &&
-    !MONGODB_URI.includes('<username>') &&
-    !MONGODB_URI.includes('xxxxx')
-);
-
 interface GlobalMongoCache {
   clientPromise?: Promise<MongoClient>;
   mongooseConn?: {

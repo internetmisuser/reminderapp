@@ -1,7 +1,5 @@
 import mongoose, { Schema, Document, Model } from 'mongoose';
 
-export type AuthProviderType = 'credentials' | 'google' | 'github' | 'facebook' | 'apple';
-
 export interface IUser extends Document {
   _id: mongoose.Types.ObjectId;
   name?: string;
@@ -9,7 +7,7 @@ export interface IUser extends Document {
   passwordHash?: string;
   image?: string | null;
   emailVerified?: Date | null;
-  provider?: AuthProviderType;
+  provider?: 'credentials' | 'google' | 'github' | 'facebook' | 'apple';
   createdAt: Date;
   updatedAt: Date;
 }
